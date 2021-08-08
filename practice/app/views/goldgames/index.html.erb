@@ -1,0 +1,37 @@
+<form action='/gold' method='post'>
+<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <div class="gold">
+        <label name='name' >Your Gold:</label>
+        <%= session[:gold] %>
+    </div>
+    <div class='boxes'>
+        <div class='farm-box'>
+            <h2> Farm </h2>
+            <h3> (earn 10-20 golds) </h3>
+            <input type="submit" name ='farm' value="Find Gold!">
+        </div>    
+        <div class='cave-box'>
+            <h2> Cave </h2>
+            <h3> (earn 5-10 golds) </h3>
+            <input type="submit" name='cave'value="Find Gold!">
+        </div> 
+        <div class='house-box'>
+            <h2> House </h2>
+            <h3> (earn 2-5 golds) </h3>
+            <input type="submit" name='house' value="Find Gold!">
+        </div>  
+        <div class='casino-box'>
+            <h2> Casino </h2>
+            <h3> (earn/takes 0-50 golds) </h3>
+            <input type="submit" name='casino' value="Find Gold!">
+        </div>  
+    </div>
+    <div class='bottom-box'>
+        <label name='activities'>Activities:</label>
+        <textarea name='activities' rows='8' cols='50'>
+            <% session[:activities].each do | activity | %>
+                <%= activity %>
+            <% end %>
+        </textarea>
+    </div>
+</form>
